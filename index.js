@@ -7,21 +7,21 @@ const contatos = [
         id: 1,
         nome: "SBT-Bomdia&Companhia",
         telefone: "47 40028922",
-        email: "sbt.bomdia&companhia@email.com"
+        email: "SBTbomdia&companhia@gmail.com"
     },
-    
+
     {
         id: 2,
         nome: "Bruno Costas",
         telefone: "47 993425892",
-        email: "brunocostas621@email.com"
+        email: "brunocostas621@gmail.com"
     },
-
+    
     {
         id: 3,
         nome: "Carlos da Silva",
         telefone: "41 553925328",
-        email: "dasilvacarlos@email.com"
+        email: "dasilvacarlos@gmail.com"
     }
 ]
 
@@ -107,6 +107,7 @@ app.put("/contatos/:id", (req, res) => {
         res.status(404).json({ erro: "contato não encontrado" })
         return
     }
+
     if (req.body?.nome && req.body.nome !== "") {
         contato.nome = req.body.nome
     }
@@ -116,6 +117,7 @@ app.put("/contatos/:id", (req, res) => {
     if (req.body?.email && req.body.email !== "") {
         contato.email = req.body.email
     }
+
     res.status(200).json(contato)
 })
 
@@ -127,6 +129,7 @@ app.delete("/contatos/:id", (req, res) => {
         res.status(404).json({ erro: "contato não encontrado" })
         return
     }
+
     contatos.splice(indice, 1)
     res.status(204).send()
 })
